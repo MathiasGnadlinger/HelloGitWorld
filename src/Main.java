@@ -9,26 +9,30 @@ public class Main
 {
     public static void main(String[] args)
     {
-        try
+        Scanner sc = new Scanner(System.in);
+        boolean b = true;
+
+        while (b)
         {
-            Scanner sc = new Scanner(System.in);
-            System.out.printf("Geben Sie einen Wert ein: %n");
-            int i = sc.nextInt();
+            try
+            {
+                System.out.printf("Geben Sie einen Wert ein: %n");
+                Double i = sc.nextDouble();
 
-            System.out.printf("Geben Sie den zweiten Wert ein, den Sie addieren möchten: ");
-            int o = sc.nextInt();
+                System.out.printf("Geben Sie den zweiten Wert ein, den Sie addieren möchten: ");
+                Double o = sc.nextDouble();
 
-            int sum = i +o;
+                Double sum = i + o;
 
-            System.out.printf("Das Ergebnis bertägt: %d",sum);;
+                System.out.printf("Das Ergebnis bertägt: %f", sum);
+                b = false;
 
+            } catch (InputMismatchException ex)
+            {
+                System.out.printf("Es wurde kein nummerischer Wert eingegeben!!%n");
+
+                sc.next();
+            }
         }
-        catch(InputMismatchException ex)
-        {
-            System.out.printf("Es wurde kein nummerischer Wert eingegeben!!");
-        }
-
-
-
     }
 }
